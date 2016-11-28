@@ -1,7 +1,7 @@
 app/etc/modules/BusinessKing_OutofStockSubscription.xml                     app/etc/modules/BusinessKing_OutofStockSubscription.xml
-app/code/local/BusinessKing/OutOfStockSubscription                          app/code/local/BusinessKing/OutOfStockSubscription
-app/code/design/adminhtml/default/default/template/outofstocksubscription   app/code/design/adminhtml/default/default/template/outofstocksubscription
-app/code/design/frontend/default/default/template/outofstocksubscription    app/code/design/frontend/default/default/template/outofstocksubscription
+app/code/local/BusinessKing/OutOfStockSubscription/*                        app/code/local/BusinessKing/OutOfStockSubscription/
+app/code/design/adminhtml/default/default/template/outofstocksubscription/* app/code/design/adminhtml/default/default/template/outofstocksubscription/
+app/code/design/frontend/default/default/template/outofstocksubscription/*  app/code/design/frontend/default/default/template/outofstocksubscription
 app/code/design/frontend/default/default/layout/outofstocksubscription.xml  app/code/design/frontend/default/default/layout/outofstocksubscription.xml
 app/locale/en_US/template/outofstock_subscription.html                      app/locale/en_US/template/outofstock_subscription.html
 app/locale/en_US/BusinessKing_OutofStockSubscription.csv                    app/locale/en_US/BusinessKing_OutofStockSubscription.csv
