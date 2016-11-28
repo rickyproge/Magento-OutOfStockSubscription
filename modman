@@ -1,10 +1,10 @@
 app/etc/modules/BusinessKing_OutofStockSubscription.xml                     app/etc/modules/BusinessKing_OutofStockSubscription.xml
 app/code/local/BusinessKing/OutOfStockSubscription                          app/code/local/BusinessKing/OutOfStockSubscription
-app/design/adminhtml/default/default/template/outofstocksubscription        app/code/design/adminhtml/default/default/template/outofstocksubscription
-app/design/frontend/default/default/template/outofstocksubscription         app/code/design/frontend/default/default/template/outofstocksubscription
-app/design/frontend/default/default/layout/outofstocksubscription.xml       app/code/design/frontend/default/default/layout/outofstocksubscription.xml
+app/design/adminhtml/default/default/template/outofstocksubscription        app/design/adminhtml/default/default/template/outofstocksubscription
+app/design/frontend/default/default/template/outofstocksubscription         app/design/frontend/default/default/template/outofstocksubscription
+app/design/frontend/default/default/layout/outofstocksubscription.xml       app/design/frontend/default/default/layout/outofstocksubscription.xml
 app/locale/en_US/template/email/outofstock_subscription.html                app/locale/en_US/template/email/outofstock_subscription.html
-#app/locale/en_US/BusinessKing_OutofStockSubscription.csv                    app/locale/en_US/BusinessKing_OutofStockSubscription.csv
+#app/locale/en_US/BusinessKing_OutofStockSubscription.csv                   app/locale/en_US/BusinessKing_OutofStockSubscription.csv
 app/locale/it_IT/template/email/outofstock_subscription.html                app/locale/it_IT/template/email/outofstock_subscription.html
 app/locale/it_IT/BusinessKing_OutofStockSubscription.csv                    app/locale/it_IT/BusinessKing_OutofStockSubscription.csv
 app/locale/pt_BR/template/email/outofstock_subscription.html                app/locale/pt_BR/template/email/outofstock_subscription.html
