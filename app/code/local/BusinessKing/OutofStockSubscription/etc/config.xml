@@ -5,6 +5,7 @@
             <version>0.1.0</version>
         </BusinessKing_OutofStockSubscription>
     </modules>
+
     <global>
         <blocks>
             <outofstocksubscription>
@@ -70,7 +71,7 @@
         </events>
         <template>
             <email>
-                <outofstock_subscription module="outofstocksubscription" translate="label">
+                <outofstock_subscription translate="label" module="outofstocksubscription">
                     <label>Out of Stock Subscription</label>
                     <file>outofstock_subscription.html</file>
                     <type>html</type>
@@ -78,6 +79,7 @@
             </email>
         </template>
     </global>
+
     <frontend>
         <routers>
             <outofstocksubscription>
@@ -95,16 +97,8 @@
                 </outofstocksubscription>
             </updates>
         </layout>
-        <translate>
-            <modules>
-                <BusinessKing_OutofStockSubscription>
-                    <files>
-                        <default>BusinessKing_OutofStockSubscription.csv</default>
-                    </files>
-                </BusinessKing_OutofStockSubscription>
-            </modules>
-        </translate>
     </frontend>
+
     <admin>
         <routers>
             <outofstocksubscription>
@@ -116,6 +110,7 @@
             </outofstocksubscription>
         </routers>
     </admin>
+
     <default>
         <outofstocksubscription>
             <mail>
@@ -123,45 +118,38 @@
             </mail>
         </outofstocksubscription>
     </default>
+
     <adminhtml>
         <menu>
-            <newsletter>
-                <children>
-                    <outofstocksubscription module="outofstocksubscription" translate="title">
-                        <title>Out of Stock subscribers</title>
-                        <sort_order>130</sort_order>
-                        <action>outofstocksubscription/adminhtml_subscriber</action>
-                    </outofstocksubscription>
-                </children>
-            </newsletter>
+            <outofstocksubscription translate="title" module="outofstocksubscription">
+                <title>Subscribers</title>
+                <sort_order>130</sort_order>
+                <action>outofstocksubscription/adminhtml_subscriber</action>
+            </outofstocksubscription>
         </menu>
         <acl>
             <resources>
-                <admin module="adminhtml" translate="title">
+                <admin translate="title" module="adminhtml">
                     <children>
-                        <newsletter>
+                        <outofstocksubscription>
+                            <title>Subscribers</title>
+                        </outofstocksubscription>
+                        <system>
                             <children>
-                                <outofstocksubscription>
-                                    <title>Out of Stock subscribers</title>
-                                    <sort_order>130</sort_order>
-                                </outofstocksubscription>
-                                <system>
+                                <config>
                                     <children>
-                                        <config>
-                                            <children>
-                                                <outofstocksubscription translate="title">
-                                                    <title>Out of Stock Subscription</title>
-                                                    <sort_order>200</sort_order>
-                                                </outofstocksubscription>
-                                            </children>
-                                        </config>
+                                        <outofstocksubscription translate="title">
+                                            <title>Out of Stock Subscription</title>
+                                            <sort_order>200</sort_order>
+                                        </outofstocksubscription>
                                     </children>
-                                </system>
+                                </config>
                             </children>
-                        </newsletter>
+                        </system>
                     </children>
                 </admin>
             </resources>
         </acl>
     </adminhtml>
+
 </config>
