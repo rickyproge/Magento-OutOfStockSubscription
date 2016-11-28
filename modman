@@ -5,7 +5,7 @@ app/code/design/frontend/default/default/template/outofstocksubscription    app/
 app/code/design/frontend/default/default/layout/outofstocksubscription.xml  app/code/design/frontend/default/default/layout/outofstocksubscription.xml
 app/locale/en_US/template/outofstock_subscription.html                      app/locale/en_US/template/outofstock_subscription.html
 app/locale/en_US/BusinessKing_OutofStockSubscription.csv                    app/locale/en_US/BusinessKing_OutofStockSubscription.csv
-app/locale/it_IT/template/outofstock_subscription.html                      app/locale/en_US/template/outofstock_subscription.html
-app/locale/it_IT/BusinessKing_OutofStockSubscription.csv                    app/locale/en_US/BusinessKing_OutofStockSubscription.csv
-app/locale/pt_BR/template/outofstock_subscription.html                      app/locale/en_US/template/outofstock_subscription.html
-app/locale/pt_BR/BusinessKing_OutofStockSubscription.csv                    app/locale/en_US/BusinessKing_OutofStockSubscription.csv
+app/locale/it_IT/template/outofstock_subscription.html                      app/locale/it_IT/template/outofstock_subscription.html
+app/locale/it_IT/BusinessKing_OutofStockSubscription.csv                    app/locale/it_IT/BusinessKing_OutofStockSubscription.csv
+app/locale/pt_BR/template/outofstock_subscription.html                      app/locale/pt_BR/template/outofstock_subscription.html
+app/locale/pt_BR/BusinessKing_OutofStockSubscription.csv                    app/locale/pt_BR/BusinessKing_OutofStockSubscription.csv
