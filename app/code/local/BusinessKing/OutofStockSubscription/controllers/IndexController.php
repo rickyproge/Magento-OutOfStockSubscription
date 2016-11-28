@@ -11,16 +11,27 @@ class BusinessKing_OutofStockSubscription_IndexController extends Mage_Core_Cont
 	public function indexAction()
 	{ 
 		$productId = $this->getRequest()->getPost('product');
+		
+		$superAttribute = $this->getRequest()->getPost('super_attribute');
+				
 		$email = $this->getRequest()->getPost('subscription_email');
 		if ($email && $productId) {
-			
-			Mage::getModel('outofstocksubscription/info')->saveSubscrition($productId, $email);
-			
-			$this->_getSession()->addSuccess($this->__('Subscription added successfully.'));
+
 						
 			$product = Mage::getModel('catalog/product')->load($productId);
+			
+			if($product->isConfigurable() && $superAttribute) {
+				$childProduct = Mage::getModel('catalog/product_type_configurable')->getProductByAttributes($superAttribute, $product);
+				$productId = $childProduct->getId();
+			}
+			
+			Mage::getModel('outofstocksubscription/info')->saveSubscrition($productId, $email);
+			$this->_getSession()->addSuccess($this->__('Subscription added successfully.'));
+			
 			//$product->getProductUrl();
-			$this->_redirectBack();
+			$url = $product->getData('url_path');
+			//$this->_redirect('catalog/product/view', array('id'=>$productId));
+			$this->_redirect($url);
 		}
 		else {
 			$this->_redirect('');
@@ -30,20 +41,5 @@ class BusinessKing_OutofStockSubscription_IndexController extends Mage_Core_Cont
     protected function _getSession()
     {
         return Mage::getSingleton('checkout/session');
-    }
-
-    /**
-     * Redirect to referrer URL or otherwise to index page without params
-     *
-     * @return BusinessKing_OutofStockSubscription_IndexController
-     */
-    protected function _redirectBack()
-    {
-        $url = $this->_getRefererUrl();
-        if (Mage::app()->getStore()->getBaseUrl() == $url) {
-            $url = Mage::getUrl('*/*/index');
-        }
-        $this->_redirectUrl($url);
-        return $this;
     }
 }

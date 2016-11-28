@@ -24,9 +24,13 @@ class BusinessKing_OutofStockSubscription_Model_Observer
 			    	if (count($subscriptions) > 0) {
 			    		
 					//$prodUrl = $product->getProductUrl();
+					/*
 					$prodUrl = Mage::getBaseUrl();
 					$prodUrl = str_replace("/index.php", "", $prodUrl);
 					$prodUrl = $prodUrl.$product->getData('url_path');
+					*/
+					$prodUrl = $this->_getProductUrl($product);
+					$prodName = $this->_getProductName($product);
 
 			    		$storeId = Mage::app()->getStore()->getId();
 		            	
@@ -49,8 +53,8 @@ class BusinessKing_OutofStockSubscription_Model_Observer
 					                $subscription['email'],
 					                '',
 					                array(
-					                	'product'     => $product->getName(),
-					                	'product_url' => $prodUrl,			                	
+					                	'product'     => $prodName,
+					                	'product_url' => $prodUrl,
 					                ));			
 					        $translate->setTranslateInline(true);
 					        
@@ -63,6 +67,46 @@ class BusinessKing_OutofStockSubscription_Model_Observer
         //return $this;
     }
     
+    private function _getProductName($product) {
+	    $parentIds = Mage::getModel('catalog/product_type_configurable')->getParentIdsByChild($product->getId());
+	    
+	    $prodUrl = false;
+	    
+	    if($parentIds && count($parentIds) > 0) {
+	    	$parent = Mage::getModel('catalog/product')->load($parentIds[0]);
+	    	if($parent) {
+	    		return $parent->getName();
+	    	}
+	    }
+	    
+	    return $product->getName();
+    }
+    
+    private function _getProductUrl($product) {
+    
+	    $parentIds = Mage::getModel('catalog/product_type_configurable')->getParentIdsByChild($product->getId());
+	    
+	    $prodUrl = false;
+	    
+	    if($parentIds && count($parentIds) > 0) {
+		    $parent = Mage::getModel('catalog/product')->load($parentIds[0]);
+		    if($parent) {
+				$prodUrl = Mage::getBaseUrl();
+				$prodUrl = str_replace("/index.php", "", $prodUrl);
+				$prodUrl = $prodUrl.$parent->getData('url_path');
+			}
+	    }
+	    
+	    if(!$prodUrl) {
+			$prodUrl = Mage::getBaseUrl();
+			$prodUrl = str_replace("/index.php", "", $prodUrl);
+			$prodUrl = $prodUrl.$product->getData('url_path');
+	    }
+	    
+	    return $prodUrl;
+	    
+    }
+    
 	public function cancelOrderItem($observer)
     {
         $item = $observer->getEvent()->getItem();
@@ -73,9 +117,12 @@ class BusinessKing_OutofStockSubscription_Model_Observer
 	    	if (count($subscriptions) > 0) {
 	    		
 	    		$product = Mage::getModel('catalog/product')->load($productId);
+	    		/*
 				$prodUrl = Mage::getBaseUrl();
 				$prodUrl = str_replace("/index.php", "", $prodUrl);
 				$prodUrl = $prodUrl.$product->getData('url_path');
+				*/
+				$prodUrl = $this->_getProductUrl($product);
 
 	    		$storeId = Mage::app()->getStore()->getId();
             	
