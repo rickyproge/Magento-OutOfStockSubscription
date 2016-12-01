@@ -1,5 +1,5 @@
 app/etc/modules/BusinessKing_OutofStockSubscription.xml                     app/etc/modules/BusinessKing_OutofStockSubscription.xml
-app/code/local/BusinessKing/OutOfStockSubscription                          app/code/local/BusinessKing/OutOfStockSubscription
+app/code/local/BusinessKing/OutofStockSubscription                          app/code/local/BusinessKing/OutofStockSubscription
 app/design/adminhtml/default/default/template/outofstocksubscription        app/design/adminhtml/default/default/template/outofstocksubscription
 app/design/frontend/default/default/template/outofstocksubscription         app/design/frontend/default/default/template/outofstocksubscription
 app/design/frontend/default/default/layout/outofstocksubscription.xml       app/design/frontend/default/default/layout/outofstocksubscription.xml
