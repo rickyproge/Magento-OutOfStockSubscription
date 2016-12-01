@@ -12,19 +12,20 @@ class BusinessKing_OutofStockSubscription_Model_Mysql4_Subscriber_Collection ext
      */
     protected function _construct()
     {
-        $this->_init('outofstocksubscription/subscriber');   
+        $this->_init('outofstocksubscription/subscriber');
     }
 
     protected function _initSelect()
-    { 
-    	parent::_initSelect();
-		//$attributeId = Mage::getResourceSingleton('outofstocksubscription/info')->getAttributeId();
-    	$this->getSelect()->join(array("cpe" => 'catalog_product_entity'), 'main_table.product_id=cpe.entity_id', array('sku'=>'cpe.sku'));
-    	//$this->getSelect()->join(array("cpev" => 'catalog_product_entity_varchar'), 'cpe.entity_id=cpev.entity_id', array('value'=>'cpev.value'));
-    	//$this->getSelect()->where("cpev.attribute_id=".$attributeId);
-    	
-    	//$this->getSelect()->group("con.ticket_id");
-    	//$this->getSelect()->order("con.comment_date DESC");
-    	//exit($this->getSelect());
+    {
+        parent::_initSelect();
+        //$attributeId = Mage::getResourceSingleton('outofstocksubscription/info')->getAttributeId();
+        $tablePrefix = Mage::getConfig()->getTablePrefix();
+        $this->getSelect()->join(array("cpe" => $tablePrefix.'catalog_product_entity'), 'main_table.product_id=cpe.entity_id', array('sku'=>'cpe.sku'));
+        //$this->getSelect()->join(array("cpev" => 'catalog_product_entity_varchar'), 'cpe.entity_id=cpev.entity_id', array('value'=>'cpev.value'));
+        //$this->getSelect()->where("cpev.attribute_id=".$attributeId);
+
+        //$this->getSelect()->group("con.ticket_id");
+        //$this->getSelect()->order("con.comment_date DESC");
+        //exit($this->getSelect());
     }
 }
